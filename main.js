@@ -52,6 +52,25 @@ var shuffle = function(){
 }
 Array.prototype.shuffle = shuffle;
 
+// zliczamy punkty w danej rece
+// funkcja jako metoda
+var points = function(){
+  var p = 0;
+  this.forEach(function(e,i,a){
+    if (e.num === 'A'){
+      p+=4;
+    } else if (e.num === 'K'){
+      p+=3;
+    } else if (e.num === 'Q'){
+      p+=2;
+    } else if (e.num === 'J'){
+      p++;
+    }
+  });
+  return p;
+}
+Array.prototype.points = points;
+
 // tablica do przechowywania talii kart
 var t = [];
 
@@ -97,10 +116,12 @@ handE.sort(s);
 handN.forEach (function (e,i,a){
   console.log(e.suit + " " + e.num);
 });
+console.log("Points: " + handN.points());
 console.log("");
 handS.forEach (function (e,i,a){
   console.log(e.suit + " " + e.num);
 });
+console.log("Points: " + handS.points());
 
 
 
