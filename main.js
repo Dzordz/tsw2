@@ -1,3 +1,5 @@
+// sortowanie kart wedlug kolorow, dalej wedlug wartosci
+// funkcja jako zwykla funkcja
 var s = function(b,a){
   if (a.suit === 'S' && b.suit !== 'S'){
     return 1;
@@ -36,6 +38,8 @@ var s = function(b,a){
   }
 }
 
+// tasowanie talii kart
+// funkcja jako metoda
 var shuffle = function(){
   var x,y,tmp;
   for (var i = 0; i<1000; i++){
@@ -48,8 +52,11 @@ var shuffle = function(){
 }
 Array.prototype.shuffle = shuffle;
 
+// tablica do przechowywania talii kart
 var t = [];
 
+// konstruktor karty
+// karta ma kolor i wartosc
 var Card = function (i){
   var num;
   var suit;
@@ -57,18 +64,22 @@ var Card = function (i){
   this.num = i%13===0 ? 'A' : i%13===1 ? 'K' : i%13===11 ? 'Q' : i%13===12 ? 'J' : i%13;
 }
 
+// wypelniamy talie kartami
 for (var i=0; i<52; i++){
   var c = new Card(i);
   t.push(c);
 }
 
+// tasujemy talie
 t.shuffle();
 
+// tablice dla kazdego z 4 graczy, gracze oznaczani kierunkami North, West, South oraz East
 var handN = [];
 var handS = [];
 var handW = [];
 var handE = [];
 
+// rozdajemy talie 
 for (var i = 0; i<13; i++){
   handN.push(t[i]);
   handS.push(t[i+13]);
@@ -76,11 +87,13 @@ for (var i = 0; i<13; i++){
   handE.push(t[i+39]);
 }
 
+// ukladamy karty kazdemu graczowi
 handN.sort(s);
 handS.sort(s);
 handW.sort(s);
 handE.sort(s);
 
+// testowo drukujemy karty graczy N i S
 handN.forEach (function (e,i,a){
   console.log(e.suit + " " + e.num);
 });
