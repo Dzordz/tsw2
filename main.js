@@ -38,6 +38,20 @@ var s = function(b,a){
   }
 }
 
+//liczenie wyniku
+//funckaj jako funkcja
+var score = function (c,trm,dbl,trc,vul){
+  //c - wysokosc kontraktu
+  //trm - atut
+  //dbl - czy byla kontra (0/1/2 - bez/kontra/rekontra)
+  //trc - ilosc lew
+  //czy grajacy byl VUL
+
+  /*
+    DO UZUPELNIENIA
+  */
+}
+
 // tasowanie talii kart
 // funkcja jako metoda
 var shuffle = function(){
@@ -106,6 +120,12 @@ for (var i = 0; i<13; i++){
   handE.push(t[i+39]);
 }
 
+//VUL - zalozenia premiowe
+//0 - NOTVUL
+//1 - VUL
+var nsvul = Math.floor(Math.random()*100) % 2;
+var ewvul = Math.floor(Math.random()*10000) % 2;
+
 // ukladamy karty kazdemu graczowi
 handN.sort(s);
 handS.sort(s);
@@ -113,12 +133,13 @@ handW.sort(s);
 handE.sort(s);
 
 // testowo drukujemy karty graczy N i S
-handN.forEach (function (e,i,a){
+console.log("VUL: NS: " + nsvul + " EW: " + ewvul);
+handN.forEach (function (e){
   console.log(e.suit + " " + e.num);
 });
 console.log("Points: " + handN.points());
 console.log("");
-handS.forEach (function (e,i,a){
+handS.forEach (function (e){
   console.log(e.suit + " " + e.num);
 });
 console.log("Points: " + handS.points());
