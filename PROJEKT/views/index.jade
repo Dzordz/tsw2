@@ -1,12 +1,8 @@
 extends layout
 
-block top
-  #username
-  input(id="logout",type="button",value="Log Out")
-
 block content
   #content
-    form(action="/",method="POST")
+    form(action="/",method="POST",id="userForm")
       label Enter username
-      input(id="username",type="text")
+      input(id="username",name="username",type="text")
       input(id="submit",type="submit",value="Log In")

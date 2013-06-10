@@ -1,0 +1,56 @@
+div {
+  border: 1px black solid;
+}
+
+#top {
+  height: 5%;
+}
+
+#content{
+  width: 100%;
+}
+
+#table {
+  height: 90%;
+}
+
+#leftCol, #midCol, #rightCol {
+  width: 33%;
+  float: left;
+}
+
+#dealInfo, #nCards, #bidHistory, #score, #sCards, #bid {
+  height: 25%;
+}
+
+#wCards, #trick, #eCards {
+  height: 50%;
+}
+
+#chat {
+  clear: both;
+  height: *;
+}
+
+#chatContent{
+  width: 85%;
+  float: right;
+}
+
+#chatConsole {
+  bottom: 0;
+}
+
+#usersList {
+  width: 15%;
+}
+
+#list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#chatConsoleInput {
+  width: 80%;
+}
